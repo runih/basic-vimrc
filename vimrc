@@ -1,4 +1,6 @@
 call plug#begin('~/.vim/plugged')
+" Install Plug by running the following command:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " Git plugins
 Plug 'tpope/vim-fugitive'
