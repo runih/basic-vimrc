@@ -29,7 +29,7 @@ Run the following to get the vimrc and install the plugins:
 Run the following in PowerShell:
 
 ```PowerShell
-New-Item -Path $HOME/vimfiles/autoload -ItemType 'directory' &&  Invoke-WebRequest https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile $HOME/vimfiles/autoload/plug.vim
+New-Item -Path $HOME/vimfiles/autoload -ItemType 'directory' &&  Invoke-WebRequest https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile $HOME/vimfiles/autoload/plug.vim && Invoke-WebRequest https://raw.githubusercontent.com/runih/basic-vimrc/main/vimrc -OutFile $HOME/_vimrc
 ```
 
 Then start *vim* and run the following command `:PlugInstall`
