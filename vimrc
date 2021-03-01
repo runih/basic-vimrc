@@ -1,4 +1,8 @@
-call plug#begin('~/.vim/plugged')
+if has('win32')
+	call plug#begin('~/vimfiles/plugged')
+else
+	call plug#begin('~/.vim/plugged')
+endif
 " Install Plug by running the following command:
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -70,14 +74,34 @@ set autoindent
 set background=dark
 set backspace=2
 set backup
-if !isdirectory($HOME . '/.vim/backup')
-	call mkdir($HOME . '/.vim/backup', 'p')
+if has('win32')
+	if !isdirectory($HOME . '/vimfiles/backup')
+		call mkdir($HOME . '/vimfiles/backup', 'p')
+	endif
+else
+	if !isdirectory($HOME . '/.vim/backup')
+		call mkdir($HOME . '/.vim/backup', 'p')
+	endif
 endif
-set backupdir=~/.vim/backup
-if !isdirectory($HOME . '/.vim/tmp')
-	call mkdir($HOME . '/.vim/tmp', 'p')
+if has('win32')
+	set backupdir=~/vimfiles/backup
+else
+	set backupdir=~/.vim/backup
 endif
-set dir=~/.vim/tmp
+if has('win32')
+	if !isdirectory($HOME . '/vimfiles/tmp')
+		call mkdir($HOME . '/vimfiles/tmp', 'p')
+	endif
+else
+	if !isdirectory($HOME . '/.vim/tmp')
+		call mkdir($HOME . '/.vim/tmp', 'p')
+	endif
+endif
+if has('win32')
+	set dir=~/vimfiles/tmp
+else
+	set dir=~/.vim/tmp
+endif
 " The terminal needs to be in UTF-8
 "set listchars=tab:▸\ ,eol:¬
 "highlight NonText guifg=#4a4a59
@@ -170,4 +194,9 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.fish set filetype=fish
 endif
 
-set shell=/bin/bash
+if has('win32')
+	set shell=powershell
+else
+	set shell=/bin/bash
+endif
+
